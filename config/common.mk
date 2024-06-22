@@ -270,3 +270,6 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 include vendor/lineage/config/version.mk
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
+
+# Bootanimation
+include vendor/lineage/config/bootanimation.mk
