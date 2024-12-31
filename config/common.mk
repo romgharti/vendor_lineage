@@ -1,8 +1,8 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 
-# Parasite Configurations
-$(call inherit-product, vendor/parasite/common/config.mk)
+# Everest Configurations
+$(call inherit-product, vendor/everest/common/config.mk)
 
 PRODUCT_BRAND ?= LineageOS
 

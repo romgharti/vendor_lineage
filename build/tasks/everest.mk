@@ -23,9 +23,10 @@ SHA256 := prebuilts/build-tools/path/$(HOST_PREBUILT_TAG)/sha256sum
 $(LINEAGE_TARGET_PACKAGE): $(INTERNAL_OTA_PACKAGE_TARGET)
 	$(hide) ln -f $(INTERNAL_OTA_PACKAGE_TARGET) $(LINEAGE_TARGET_PACKAGE)
 	$(hide) $(SHA256) $(LINEAGE_TARGET_PACKAGE) | sed "s|$(PRODUCT_OUT)/||" > $(LINEAGE_TARGET_PACKAGE).sha256sum
-	$(hide) ./vendor/parasite/common/tools/generate_json_build_info.sh $(LINEAGE_TARGET_PACKAGE)
-	$(hide) ./vendor/parasite/common/tools/changelog
+	$(hide) ./vendor/everest/common/tools/generate_json_build_info.sh $(LINEAGE_TARGET_PACKAGE)
+	$(hide) ./vendor/everest/common/tools/changelog
+	$(hide) ./vendor/lineage/build/tasks/ascii_output.sh
 	@echo "Package Complete: $(LINEAGE_TARGET_PACKAGE)" >&2
 
-.PHONY: bacon
-bacon: $(LINEAGE_TARGET_PACKAGE) $(DEFAULT_GOAL)
+.PHONY: everest
+everest: $(LINEAGE_TARGET_PACKAGE) $(DEFAULT_GOAL)
